@@ -4,7 +4,7 @@ import AvatarChakra from './Page/AvatarChakra';
 function App() {
   return (
     <div className="App">
-      {/* <AvatarChakra /> */}
+      <AvatarChakra />
 
     </div>
   )
