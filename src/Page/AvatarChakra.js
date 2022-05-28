@@ -35,8 +35,8 @@ function AvatarChakra() {
             <Box className="Header" h='30px' justifyContent='center' bg='#E9D5CA' color=''>
                 <Text mx='5px'>7-Days Student</Text>
             </Box>
-            <Flex className="Body" justifyContent='center' gap='5' h='650' align='center'>
-                <Box className="SignUp" w='650px' h='400px' bg='#9e1959' border='2px solid black' borderRadius='3px' justifyContent='center' alignContent='center' gap='5' display='flex'>
+            <Flex className="Body" justifyContent='center' gap='5' h='500' align='center'>
+                <Box className="SignUp" w='550px' h='300px' bg='#9e1959' border='2px solid black' borderRadius='3px' justifyContent='center' alignContent='center' gap='5' display='flex'>
                     <Box w="50%" p={4} display='flex' justifyContent='center' alignItems='center' >
                         <ImageSlider slides={SlideData} />
                     </Box>

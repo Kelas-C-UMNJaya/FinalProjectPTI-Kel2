@@ -9,7 +9,7 @@ function Game() {
         <Box className="Bungkus" h='100vh' bg='#354259' color='#712B75'>
             <Header />
             <UserStatus />
-            <Flex className="Body2" justifyContent='center' gap='100'>
+            <Flex className="Body2" justifyContent='center' gap='100' h='270'>
                 <Stack>
                     <Heading as='h4' size='lg' color='#A0BCC2'>Go To:</Heading>
                     <Button bg='#A0BCC2' size='sm' color='#712B75' variant='solid'>
@@ -24,7 +24,7 @@ function Game() {
                 </Stack>
                 <Box boxSize='sm' justifyContent='center' color='#712B75' align='center' >
                     <Image
-                        boxSize='350px'
+                        boxSize='240px'
                         objectFit='cover'
                         src='https://cdn.discordapp.com/attachments/946960873686188093/978883459672047676/c1.png'
                     />
