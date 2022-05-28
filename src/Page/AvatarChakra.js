@@ -1,49 +1,60 @@
-import { React, useState, useContext } from "react";
-import { Text, Heading, Input, Flex, Center, Container, Box, Button, Select, FormControl } from '@chakra-ui/react'
+import { React, useContext, useState } from "react";
+import { Text, Input, Flex, Box, Button, Select, FormControl } from '@chakra-ui/react'
 import ImageSlider from "../Component/ImageSlider";
 import { SlideData } from "../Component/AvatarData";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { userContext } from "../UserContext";
+import Ava_bg from '../Asset/BackgroundAsset/Ava_bg.png'
 
 // import "../cssnya/Avatar.css";
 
 function AvatarChakra() {
-    const [name, setName] = useState("");
+    let navigate = useNavigate();
+    const [temp, setTemp] = useState("");
+    const [temp2, setTemp2] = useState("");
+    const { userData } = useContext(userContext);
 
+    function handleChangeName(e) {
+        setTemp(e.target.value);
+    }
+    function handleChangeJurusan(e) {
+        setTemp2(e.target.value);
+    }
 
-    function handleChange(event) {
-        setName(event.target.value);
-        console.log(event.target.value);
+    function handleSubmit(e) {
+        userData.name = temp;
+        userData.jurusan = temp2;
+        e.preventDefault();
+        console.log(e);
+        console.log(userData.name);
+        navigate("/Game");
     }
 
     return (
-        <Box className="Bungkus" h='100vh' bg='#354259' color='#E9D5CA'>
-            <Box className="Header" h='20' justifyContent='center' alignItems='center'>
-                <Center>
-                    <Heading my='5'>7-Days Student</Heading>
-                </Center>
+        <Box className="Bungkus" h='100vh' color='#4D4C7D' bgImage={Ava_bg} bgSize='auto' backgroundPosition="center" >
+            <Box className="Header" h='30px' justifyContent='center' bg='#E9D5CA' color=''>
+                <Text mx='5px'>7-Days Student</Text>
             </Box>
             <Flex className="Body" justifyContent='center' gap='5' h='450' align='center'>
-                <Box className="SignUp" w='550px' h='300px' bg='teal.400' border='2px solid black' borderRadius='3px' justifyContent='center' alignContent='center' gap='5' display='flex'>
+                <Box className="SignUp" w='550px' h='300px' bg='#9e1959' border='2px solid black' borderRadius='3px' justifyContent='center' alignContent='center' gap='5' display='flex'>
                     <Box w="50%" p={4} justify='center' h='auto' my='10'>
                         <ImageSlider slides={SlideData} />
                     </Box>
                     <Box className="menuData" justifyContent='center' alignContent='center'>
-                        <Box as="form" my='65px'>
-                            <Input variant='filled' onChange={handleChange} size='sm' borderRadius='3' bg='teal.400' color='#712B75'
-                                placeholder="Enter your name...">
+                        <Box as="form" my='65px' onSubmit={handleSubmit}>
+                            <Input onChange={handleChangeName} value={temp} size='sm' borderRadius='3' bg='#E9D5CA'
+                                placeholder="Enter your name..." _placeholder={{ color: '#4D4C7D' }}>
                             </Input>
-                            <Select placeholder="Program Studi" size='sm' borderRadius='3' color='#712B75' mt='5'>
-                                <option value='Pilihan1'>Informatika</option>
-                                <option value='Pilihan2'>Teknik Sipil</option>
-                                <option value='Pilihan3'>Teknik Mesin</option>
-                                <option value='Pilihan4'>Teknik Elektro</option>
-                                <option value='Pilihan5'>Teknik Industri</option>
+                            <Select onClick={handleChangeJurusan} placeholder="Program Studi" size='sm' borderRadius='3' color='#4D4C7D' bg='#E9D5CA' mt='5'>
+                                <option value='Informatika'>Informatika</option>
+                                <option value='Teknik Sipil'>Teknik Sipil</option>
+                                <option value='Teknik Mesin'>Teknik Mesin</option>
+                                <option value='Teknik Elektro'>Teknik Elektro</option>
+                                <option value='Teknik Industri'>Teknik Industri</option>
                             </Select>
-                            <Link to='/Game'>
-                                <Button my='5' bg='#A0BCC2' color='#712B75' size='sm' variant='solid'>
-                                    Start
-                                </Button>
-                            </Link>
+                            <Button as="button" borderRadius='3' type="submit" variant='solid' my='5' color='#4D4C7D' bg='#E9D5CA' size='sm' _hover={{ bg: '#363062' }}>
+                                Start
+                            </Button>
                         </Box>
                     </Box>
                 </Box>

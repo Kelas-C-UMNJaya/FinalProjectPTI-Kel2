@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, Heading, Image, Flex, Center, Box, Button, CircularProgress, Stack, CircularProgressLabel } from '@chakra-ui/react'
 
-function Header() {
+export default function Header() {
     return (
         <Box className="Header" justifyContent='center'>
             <Box className="Jam" h='30px' bg='#A0BCC2'>
@@ -10,4 +10,3 @@ function Header() {
         </Box>
     )
 }
-export default Header;
