@@ -1,5 +1,5 @@
 import { React, useContext, useState } from "react";
-import { Text, Input, Flex, Box, Button, Select, FormControl } from '@chakra-ui/react'
+import { Text, Input, Flex, Box, Button, Select, FormControl, VStack } from '@chakra-ui/react'
 import ImageSlider from "../Component/ImageSlider";
 import { SlideData } from "../Component/AvatarData";
 import { useNavigate } from "react-router-dom";
@@ -31,31 +31,29 @@ function AvatarChakra() {
     }
 
     return (
-        <Box className="Bungkus" h='100vh' color='#4D4C7D' bgImage={Ava_bg} bgSize='auto' backgroundPosition="center" >
+        <Box className="Bungkus" h='100vh' color='#4D4C7D' bgImage={Ava_bg} bgSize='auto' backgroundPosition="center">
             <Box className="Header" h='30px' justifyContent='center' bg='#E9D5CA' color=''>
                 <Text mx='5px'>7-Days Student</Text>
             </Box>
-            <Flex className="Body" justifyContent='center' gap='5' h='450' align='center'>
-                <Box className="SignUp" w='550px' h='300px' bg='#9e1959' border='2px solid black' borderRadius='3px' justifyContent='center' alignContent='center' gap='5' display='flex'>
-                    <Box w="50%" p={4} justify='center' h='auto' my='10'>
+            <Flex className="Body" justifyContent='center' gap='5' h='650' align='center'>
+                <Box className="SignUp" w='650px' h='400px' bg='#9e1959' border='2px solid black' borderRadius='3px' justifyContent='center' alignContent='center' gap='5' display='flex'>
+                    <Box w="50%" p={4} display='flex' justifyContent='center' alignItems='center' >
                         <ImageSlider slides={SlideData} />
                     </Box>
-                    <Box className="menuData" justifyContent='center' alignContent='center'>
-                        <Box as="form" my='65px' onSubmit={handleSubmit}>
-                            <Input onChange={handleChangeName} value={temp} size='sm' borderRadius='3' bg='#E9D5CA'
-                                placeholder="Enter your name..." _placeholder={{ color: '#4D4C7D' }}>
-                            </Input>
-                            <Select onClick={handleChangeJurusan} placeholder="Program Studi" size='sm' borderRadius='3' color='#4D4C7D' bg='#E9D5CA' mt='5'>
-                                <option value='Informatika'>Informatika</option>
-                                <option value='Teknik Sipil'>Teknik Sipil</option>
-                                <option value='Teknik Mesin'>Teknik Mesin</option>
-                                <option value='Teknik Elektro'>Teknik Elektro</option>
-                                <option value='Teknik Industri'>Teknik Industri</option>
-                            </Select>
-                            <Button as="button" borderRadius='3' type="submit" variant='solid' my='5' color='#4D4C7D' bg='#E9D5CA' size='sm' _hover={{ bg: '#363062' }}>
-                                Start
-                            </Button>
-                        </Box>
+                    <Box className="InputData" as="form" onSubmit={handleSubmit} display='flex' flexDir='column' alignItems='center' justifyContent='center'>
+                        <Input onChange={handleChangeName} value={temp} size='sm' my='3' borderRadius='3' bg='#E9D5CA'
+                            placeholder="Enter your name..." _placeholder={{ color: '#4D4C7D' }}>
+                        </Input>
+                        <Select onClick={handleChangeJurusan} placeholder="Program Studi" size='sm' borderRadius='3' color='#4D4C7D' bg='#E9D5CA'>
+                            <option value='Informatika'>Informatika</option>
+                            <option value='Teknik Sipil'>Teknik Sipil</option>
+                            <option value='Teknik Mesin'>Teknik Mesin</option>
+                            <option value='Teknik Elektro'>Teknik Elektro</option>
+                            <option value='Teknik Industri'>Teknik Industri</option>
+                        </Select>
+                        <Button as="button" borderRadius='3' type="submit" variant='solid' color='#4D4C7D' my='3' bg='#E9D5CA' size='sm' _hover={{ bg: '#363062' }}>
+                            Start
+                        </Button>
                     </Box>
                 </Box>
             </Flex >
