@@ -1,17 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Text, Heading, Image, Flex, Center, Box, Button, CircularProgress, Stack, CircularProgressLabel } from '@chakra-ui/react'
 import { Link } from "react-router-dom";
 import Header from "./GameComp/Header";
 import { FaBed, FaBookReader } from 'react-icons/fa';
 import { IoFastFoodSharp, IoGameControllerSharp, IoSchoolSharp } from 'react-icons/io5';
+import { userContext } from '../UserContext';
 
 function Game() {
+    const { userData } = useContext(userContext);
     return (
         <Box className="Bungkus" h='100vh' bg='#354259' color='#712B75'>
             <Header />
             <Flex className="Body" justifyContent='center' align='center' w='100%' h='120' gap='160'>
                 <Box className="UserBar" my='2' h='50px' w='300px' color='#712B75' borderRadius='3' bg='#A0BCC2' textAlign='left'>
-                    <Text ml='3'>Selamat Pagi, Jaki Gay</Text>
+                    <Text ml='3'>Selamat Pagi, {userData.name}</Text>
                     <Text ml='3'>Informatika</Text>
                 </Box>
                 <Flex className="StatusBox" justifyContent='center' align='center' h='80px' w='300px' gap='5' borderRadius='3' bg='#A0BCC2'>

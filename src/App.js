@@ -1,13 +1,13 @@
-import Avatar from './Page/Avatar';
-import AvatarChakra from './Page/AvatarChakra';
+import React, { useState } from "react"
+import AvatarChakra from "./Page/AvatarChakra";
 
 function App() {
-  return (
-    <div className="App">
-      <AvatarChakra />
 
+  return (
+    <div>
+      <AvatarChakra />
     </div>
   )
-}
+};
 
 export default App;

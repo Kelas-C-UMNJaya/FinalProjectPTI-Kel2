@@ -32,7 +32,7 @@ function AvatarChakra() {
                             <Input variant='filled' onChange={handleChange} size='sm' borderRadius='3' bg='teal.400' color='#712B75'
                                 placeholder="Enter your name...">
                             </Input>
-                            <Select placeholder="Program Studi" size='sm' borderRadius='2' color='#712B75' mt='5'>
+                            <Select placeholder="Program Studi" size='sm' borderRadius='3' color='#712B75' mt='5'>
                                 <option value='Pilihan1'>Informatika</option>
                                 <option value='Pilihan2'>Teknik Sipil</option>
                                 <option value='Pilihan3'>Teknik Mesin</option>
