@@ -31,12 +31,12 @@ function AvatarChakra() {
 
     return (
         <Flex className="Bungkus" h='100vh' color='#4D4C7D' bgImage={Ava_bg} bgSize='cover' bgPosition='center' direction='column'>
-            <Box className="Header" h='30px' justifyContent='center' bg='#E9D5CA' color=''>
+            <Box className="Header" h='30px' justifyContent='center' bg='#2f3e46' color='#EAE0D5'>
                 <Text mx='5px'>7-Days Student</Text>
             </Box>
             <Flex className="Body" mx={{ base: '40px', sm: '60px', md: '80px', lg: '150px', xl: '350px' }}
                 justifyContent='center' gap='5' align='center' flexGrow='1'>
-                <Flex className="SignUp" bg='#5E503F' border='2px #5E503F' borderRadius='3px'
+                <Flex className="SignUp" bg='#2f3e46' border='2px #5E503F' borderRadius='3px'
                     justifyContent='center' alignItems='center' gap={{ base: '0', md: '0', lg: '10' }}
                     direction={{ base: 'column', lg: 'row' }}>
                     <Box w={{ base: '70%', md: '50%', lg: '50%' }} p={4} display='flex' justifyContent='center' alignItems='center' >
@@ -54,7 +54,7 @@ function AvatarChakra() {
                             <option value='Teknik Elektro'>Teknik Elektro</option>
                             <option value='Teknik Industri'>Teknik Industri</option>
                         </Select>
-                        <Button as="button" borderRadius='3' type="submit" variant='solid' color='#0A0908' my='3' bg='#EAE0D5' size='sm' _hover={{ color: '#EAE0D5', bg: 'Green' }}>
+                        <Button as="button" borderRadius='3' type="submit" variant='solid' color='#0A0908' my='3' bg='#EAE0D5' size='sm' _hover={{ color: '#EAE0D5', bg: '#22333B' }}>
                             Start
                         </Button>
                     </Box>
