@@ -1,12 +1,11 @@
 import { React, useContext, useState } from "react";
-import { Text, Input, Flex, Box, Button, Select, FormControl, VStack } from '@chakra-ui/react'
+import { Text, Input, Flex, Box, Button, Select, FormControl, VStack, Container } from '@chakra-ui/react'
 import ImageSlider from "../Component/ImageSlider";
 import { SlideData } from "../Component/AvatarData";
 import { useNavigate } from "react-router-dom";
 import { userContext } from "../UserContext";
 import Ava_bg from '../Asset/BackgroundAsset/Ava_bg.png'
 
-// import "../cssnya/Avatar.css";
 
 function AvatarChakra() {
     let navigate = useNavigate();
@@ -31,13 +30,13 @@ function AvatarChakra() {
     }
 
     return (
-        <Box className="Bungkus" h='100vh' color='#4D4C7D' bgImage={Ava_bg} bgSize='auto' backgroundPosition="center">
+        <Flex className="Bungkus" h='100vh' color='#4D4C7D' bgImage={Ava_bg} bgSize='cover' bgPosition='center' direction='column'>
             <Box className="Header" h='30px' justifyContent='center' bg='#E9D5CA' color=''>
                 <Text mx='5px'>7-Days Student</Text>
             </Box>
-            <Flex className="Body" justifyContent='center' gap='5' h='500' align='center'>
-                <Box className="SignUp" w='550px' h='300px' bg='#9e1959' border='2px solid black' borderRadius='3px' justifyContent='center' alignContent='center' gap='5' display='flex'>
-                    <Box w="50%" p={4} display='flex' justifyContent='center' alignItems='center' >
+            <Flex className="Body" mx={{ base: '24px', md: '150px', lg: '370px' }} justifyContent='center' gap='5' align='center' flexGrow='1'>
+                <Flex className="SignUp" bg='#262927' border='2px solid black' borderRadius='3px' justifyContent='center' alignItems='center' gap='10' direction={{ base: 'column', lg: 'row' }}>
+                    <Box w='50%' p={4} display='flex' justifyContent='center' alignItems='center' >
                         <ImageSlider slides={SlideData} />
                     </Box>
                     <Box className="InputData" as="form" onSubmit={handleSubmit} display='flex' flexDir='column' alignItems='center' justifyContent='center'>
@@ -55,9 +54,9 @@ function AvatarChakra() {
                             Start
                         </Button>
                     </Box>
-                </Box>
+                </Flex>
             </Flex >
-        </Box >
+        </Flex >
     )
 }
 
