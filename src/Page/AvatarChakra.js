@@ -34,23 +34,27 @@ function AvatarChakra() {
             <Box className="Header" h='30px' justifyContent='center' bg='#E9D5CA' color=''>
                 <Text mx='5px'>7-Days Student</Text>
             </Box>
-            <Flex className="Body" mx={{ base: '24px', md: '150px', lg: '370px' }} justifyContent='center' gap='5' align='center' flexGrow='1'>
-                <Flex className="SignUp" bg='#262927' border='2px solid black' borderRadius='3px' justifyContent='center' alignItems='center' gap='10' direction={{ base: 'column', lg: 'row' }}>
-                    <Box w='50%' p={4} display='flex' justifyContent='center' alignItems='center' >
+            <Flex className="Body" mx={{ base: '40px', sm: '60px', md: '80px', lg: '150px', xl: '350px' }}
+                justifyContent='center' gap='5' align='center' flexGrow='1'>
+                <Flex className="SignUp" bg='#5E503F' border='2px #5E503F' borderRadius='3px'
+                    justifyContent='center' alignItems='center' gap={{ base: '0', md: '0', lg: '10' }}
+                    direction={{ base: 'column', lg: 'row' }}>
+                    <Box w={{ base: '70%', md: '50%', lg: '50%' }} p={4} display='flex' justifyContent='center' alignItems='center' >
                         <ImageSlider slides={SlideData} />
                     </Box>
-                    <Box className="InputData" as="form" onSubmit={handleSubmit} display='flex' flexDir='column' alignItems='center' justifyContent='center'>
-                        <Input onChange={handleChangeName} value={temp} size='sm' my='3' borderRadius='3' bg='#E9D5CA'
-                            placeholder="Enter your name..." _placeholder={{ color: '#4D4C7D' }}>
+                    <Box className="InputData" as="form" onSubmit={handleSubmit} display='flex'
+                        flexDir='column' alignItems='center' justifyContent='center'>
+                        <Input onChange={handleChangeName} value={temp} size='sm' my='3' borderColor='#5E503F' borderRadius='3' bg='#EAE0D5' color='#0A0908'
+                            placeholder="Enter your name..." _hover={{ color: '#0A0908' }}>
                         </Input>
-                        <Select onClick={handleChangeJurusan} placeholder="Program Studi" size='sm' borderRadius='3' color='#4D4C7D' bg='#E9D5CA'>
+                        <Select onClick={handleChangeJurusan} placeholder="Program Studi" size='sm' borderColor='#5E503F' _hover={{ color: '#0A0908' }} borderRadius='3' color='#0A0908' bg='#EAE0D5'>
                             <option value='Informatika'>Informatika</option>
                             <option value='Teknik Sipil'>Teknik Sipil</option>
                             <option value='Teknik Mesin'>Teknik Mesin</option>
                             <option value='Teknik Elektro'>Teknik Elektro</option>
                             <option value='Teknik Industri'>Teknik Industri</option>
                         </Select>
-                        <Button as="button" borderRadius='3' type="submit" variant='solid' color='#4D4C7D' my='3' bg='#E9D5CA' size='sm' _hover={{ bg: '#363062' }}>
+                        <Button as="button" borderRadius='3' type="submit" variant='solid' color='#0A0908' my='3' bg='#EAE0D5' size='sm' _hover={{ color: '#EAE0D5', bg: 'Green' }}>
                             Start
                         </Button>
                     </Box>

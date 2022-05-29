@@ -4,6 +4,8 @@ import { FaBed } from 'react-icons/fa';
 import { IoFastFoodSharp, IoGameControllerSharp, IoSchoolSharp } from 'react-icons/io5';
 import { userContext } from '../UserContext'
 
+
+
 export default function UserStatus() {
     const { userData } = useContext(userContext);
     return (
