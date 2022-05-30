@@ -9,7 +9,7 @@ function Game() {
     return (
         <Flex className="Bungkus" h='100vh' bgImage={Home_pagi} bgSize='cover' bgPosition='center' color='#712B75' direction='column'>
             <Header />
-            <Flex className="Body2" justifyContent='center' gap={{ base: '0', md: '50', lg: '100' }} direction={{ base: 'row', md: 'column', lg: 'row' }}>
+            <Flex className="Body2" justifyContent='center' gap={{ base: '0', md: '50', lg: '100' }} direction={{ base: 'row', md: 'row', lg: 'row' }}>
                 <UserInfo />
                 <UserStatus />
             </Flex>

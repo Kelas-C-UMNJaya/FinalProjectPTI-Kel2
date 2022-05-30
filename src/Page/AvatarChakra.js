@@ -34,7 +34,7 @@ function AvatarChakra() {
             <Box className="Header" h='30px' justifyContent='center' bg='#2f3e46' color='#EAE0D5'>
                 <Text mx='5px'>7-Days Student</Text>
             </Box>
-            <Flex className="Body" mx={{ base: '40px', sm: '60px', md: '80px', lg: '150px', xl: '350px' }}
+            <Flex className="Body" mx={{ base: '40px', sm: '100px', md: '200px', lg: '250px' }}
                 justifyContent='center' gap='5' align='center' flexGrow='1'>
                 <Flex className="SignUp" bg='#2f3e46' border='2px #5E503F' borderRadius='3px'
                     justifyContent='center' alignItems='center' gap={{ base: '0', md: '0', lg: '10' }}
