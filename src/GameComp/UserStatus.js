@@ -6,7 +6,8 @@ import { statusContext } from "../StatusContext";
 
 export default function UserStatus() {
     //StatusBar Declare==========================//
-    const { makan, main, tidur, belajar } = useContext(statusContext);
+    const { returnStatus, TogglingButton } = useContext(statusContext);
+    const { makan, main, tidur, belajar } = returnStatus;
     // const [makan, setMakan] = useState(0);
     // const [main, setMain] = useState(0);
     // const [tidur, setTidur] = useState(0);
@@ -55,16 +56,16 @@ export default function UserStatus() {
                 </CircularProgress>
             </Grid>
             <SimpleGrid columns={{ base: '2', md: '2' }} spacing='10px' color='#2f3e46' bg='#2f3e46' padding='3' borderRadius='3'>
-                <Button size='sm' bg='#EAE0D5' _hover={{ bg: '#7678ed' }} variant='solid'>
+                <Button onClick={() => TogglingButton("belajar")} isActive={belajar.active} size='sm' bg='#EAE0D5' _hover={{ bg: '#7678ed' }} variant='solid'>
                     Belajar
                 </Button>
-                <Button size='sm' bg='#EAE0D5' _hover={{ bg: '#7678ed' }} variant='solid'>
+                <Button onClick={() => TogglingButton("main")} isActive={main.active} size='sm' bg='#EAE0D5' _hover={{ bg: '#7678ed' }} variant='solid'>
                     Main
                 </Button>
-                <Button size='sm' bg='#EAE0D5' _hover={{ bg: '#7678ed' }} variant='solid'>
+                <Button onClick={() => TogglingButton("tidur")} isActive={tidur.active} size='sm' bg='#EAE0D5' _hover={{ bg: '#7678ed' }} variant='solid'>
                     Tidur
                 </Button>
-                <Button size='sm' bg='#EAE0D5' _hover={{ bg: '#7678ed' }} variant='solid'>
+                <Button onClick={() => TogglingButton("makan")} isActive={makan.active} size='sm' bg='#EAE0D5' _hover={{ bg: '#7678ed' }} variant='solid'>
                     Makan
                 </Button>
             </SimpleGrid >

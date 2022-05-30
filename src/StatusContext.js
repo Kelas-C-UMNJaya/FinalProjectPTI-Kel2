@@ -19,26 +19,38 @@ export function StatusProvider({ children }) {
     const [buttonTidur, setButtonTidur] = useState(false);
     const [buttonBelajar, setButtonBelajar] = useState(false);
 
+    const TogglingButton = (value) => {
+        let checker;
+        for (checker in returnStatus) {
+            returnStatus[checker].setActive(false);
+        }
+        if (returnStatus[value].active) {
+            returnStatus[value].setActive(false);
+        } else {
+            returnStatus[value].setActive(true);
+        }
+        console.log(returnStatus);
+    }
+
     useEffect(() => {
         const interval = setInterval(() => {
-            // (prevCounter) => buttonMakan ? prevCounter + StatData.makan.nambah : prevCounter + StatData.makan.kurang;
-            setMakan((prevCounter) => prevCounter + StatData.makan.kurang);
-            setMain((prevCounter) => prevCounter + StatData.main.kurang);
-            setTidur((prevCounter) => prevCounter + StatData.tidur.kurang);
-            setBelajar((prevCounter) => prevCounter + StatData.belajar.kurang);
+            setMakan((prevCounter) => buttonMakan ? prevCounter + StatData.makan.nambah : prevCounter + StatData.makan.kurang);
+            setMain((prevCounter) => buttonMain ? prevCounter + StatData.main.nambah : prevCounter + StatData.main.kurang);
+            setTidur((prevCounter) => buttonTidur ? prevCounter + StatData.tidur.nambah : prevCounter + StatData.tidur.kurang);
+            setBelajar((prevCounter) => buttonBelajar ? prevCounter + StatData.belajar.nambah : prevCounter + StatData.belajar.kurang);
         }, 1000);
         return () => clearInterval(interval);
     });
 
     const returnStatus = {
         makan: { stat: makanData, active: buttonMakan, set: setMakan, setActive: setButtonMakan },
-        main: { stat: mainData, set: setMain },
-        tidur: { stat: tidurData, set: setTidur },
-        belajar: { stat: belajarData, set: setBelajar }
+        main: { stat: mainData, active: buttonMain, set: setMain, setActive: setButtonMain },
+        tidur: { stat: tidurData, active: buttonTidur, set: setTidur, setActive: setButtonTidur },
+        belajar: { stat: belajarData, active: buttonBelajar, set: setBelajar, setActive: setButtonBelajar }
     }
 
     return (
-        <statusContext.Provider value={returnStatus}>
+        <statusContext.Provider value={{ returnStatus, TogglingButton }}>
             {children}
         </statusContext.Provider >
     )
