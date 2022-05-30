@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 export const statusContext = React.createContext();
 
 const StatData = {
-    makan: { nambah: 1, kurang: -1 },
-    main: { nambah: 1, kurang: -0.8 },
-    tidur: { nambah: 0.8, kurang: -0.2 },
+    makan: { nambah: 4, kurang: -1 },
+    main: { nambah: 4, kurang: -1 },
+    tidur: { nambah: 3, kurang: -0.5 },
     belajar: { nambah: 1.5, kurang: -0 }
 };
 

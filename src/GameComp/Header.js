@@ -1,6 +1,5 @@
 import React from "react";
-import { Heading, Flex, Box, Menu, MenuButton, IconButton, MenuList, MenuItem } from '@chakra-ui/react'
-import { HamburgerIcon, AddIcon, ExternalLinkIcon, RepeatIcon, EditIcon } from "@chakra-ui/icons";
+import { Heading, Flex } from '@chakra-ui/react'
 
 export default function Header() {
     return (
