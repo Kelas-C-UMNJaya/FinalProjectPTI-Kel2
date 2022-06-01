@@ -4,6 +4,7 @@ import { userContext } from "../UserContext";
 import Home_pagi from "../Asset/BackgroundAsset/Home_pagi.png";
 import { FaBed } from 'react-icons/fa';
 import { IoFastFoodSharp, IoGameControllerSharp, IoSchoolSharp } from 'react-icons/io5';
+import Jam from "./Jam";
 
 function Game() {
     const { userData } = useContext(userContext);
@@ -46,49 +47,32 @@ function Game() {
             updateStatus(makan, setMakan, 1, "turun");
             updateStatus(main, setMain, 1, "turun");
             updateStatus(tidur, setTidur, 0.5, "turun");
-
-            // setMakan((prevCounter) => prevCounter - 1);
-            // setMain((prevCounter) => prevCounter - 1);
-            // setTidur((prevCounter) => prevCounter - 0.5);
         }
         else if (status === "makan") {
             updateStatus(makan, setMakan, 5, "naik");
             updateStatus(main, setMain, 1, "turun");
             updateStatus(tidur, setTidur, 1, "turun");
-
-            // setMakan((prevCounter) => prevCounter + 5);
-            // setMain((prevCounter) => prevCounter - 1);
-            // setTidur((prevCounter) => prevCounter - 1);
-
         }
         else if (status === "main") {
             updateStatus(makan, setMakan, 1, "turun");
             updateStatus(main, setMain, 4, "naik");
             updateStatus(tidur, setTidur, 0.7, "turun");
-
-            // setMakan((prevCounter) => prevCounter - 1);
-            // setMain((prevCounter) => prevCounter + 4);
-            // setTidur((prevCounter) => prevCounter - 0.7);
         }
         else if (status === "belajar") {
             updateStatus(makan, setMakan, 1, "turun");
             updateStatus(main, setMain, 1, "turun");
             updateStatus(tidur, setTidur, 1, "turun");
-            updateStatus(belajar, setBelajar, 2, "naik");
-
-            // setMakan((prevCounter) => prevCounter - 1);
-            // setBelajar((prevCounter) => prevCounter + 2);
-            // setMain((prevCounter) => prevCounter - 1);
-            // setTidur((prevCounter) => prevCounter - 1);
+            updateStatus(belajar, setBelajar, 20, "naik");
+            if (belajar >= 100) {
+                setBelajar(0);
+                setBgBelajar("#EAE0D5");
+                setButton("");
+            }
         }
         else if (status === "tidur") {
             updateStatus(makan, setMakan, 1, "turun");
             updateStatus(main, setMain, 1, "turun");
             updateStatus(tidur, setTidur, 2, "naik");
-
-            // setMakan((prevCounter) => prevCounter - 1);
-            // setMain((prevCounter) => prevCounter - 1);
-            // setTidur((prevCounter) => prevCounter + 1);
         }
     }
 
@@ -164,7 +148,6 @@ function Game() {
         setButtonTidur(!buttonTidur);
     }
 
-
     useEffect(() => {
         const interval = setInterval(() => {
             updateStatusBar(button);
@@ -175,8 +158,8 @@ function Game() {
     return (
         <Flex className="Bungkus" h='100vh' bgImage={Home_pagi} bgSize='cover' bgPosition='center' color='#712B75' direction='column'>
             <Flex className="Header" justifyContent='center' >
-                <Flex className="Jam" bg='#2f3e46' color='#EAE0D5' w='100vw' px='10' py='6' >
-                    <Heading as='h4' py='2' size='md' >Rabu, 09:00</Heading>
+                <Flex className="Jam" bg='#2f3e46' color='#EAE0D5' w='100vw' px='4' py='3'>
+                    <Jam />
                 </Flex>
             </Flex>
             <Flex className="Body2" justifyContent='center' gap={{ base: '0', md: '100', lg: '100' }} direction={{ base: 'row', md: 'row', lg: 'row' }}>
