@@ -4,25 +4,25 @@ import c3 from '../Asset/AvatarAsset/c3.png';
 import c4 from '../Asset/AvatarAsset/c4.png';
 import c5 from '../Asset/AvatarAsset/c5.png';
 
-export const SlideData = [
+export const AvatarData = [
     {
         image: c1,
-        value: "Char_1"
+        value: "0"
     },
     {
         image: c2,
-        value: "Char_2"
+        value: "1"
     },
     {
         image: c3,
-        value: "Char_3"
+        value: "2"
     },
     {
         image: c4,
-        value: "Char_4"
+        value: "3"
     },
     {
         image: c5,
-        value: "Char_5"
+        value: "4"
     }
 ];

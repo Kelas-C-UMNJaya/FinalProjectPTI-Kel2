@@ -3,7 +3,7 @@ import { addMinutes, startOfToday, startOfWeek, format } from "date-fns";
 import React, { useState, useEffect } from "react";
 
 export default function Jam() {
-    const [jam, setJam] = useState(startOfWeek(startOfToday()));
+    const [jam, setJam] = useState(startOfToday());
 
 
     const updateJam = () => {
@@ -21,7 +21,7 @@ export default function Jam() {
     return (
         <Flex gap='2'>
             <Heading as='h6' size='xs'>{format(jam, 'HH:mm')}</Heading >
-            <Text fontSize='xs'>{format(jam, 'E, MMM yyyy')}</Text >
+            <Text fontSize='xs'>{format(jam, 'E, d MMM yyyy')}</Text >
         </Flex>
     )
 }

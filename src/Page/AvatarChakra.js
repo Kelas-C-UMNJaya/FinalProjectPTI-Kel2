@@ -1,7 +1,7 @@
 import { React, useContext, useState } from "react";
 import { Text, Input, Flex, Box, Button, Select, FormControl, VStack, Container } from '@chakra-ui/react'
 import ImageSlider from "../Component/ImageSlider";
-import { SlideData } from "../Component/AvatarData";
+import { AvatarData, SlideData } from "../Component/AvatarData";
 import { useNavigate } from "react-router-dom";
 import { userContext } from "../UserContext";
 import Ava_bg from '../Asset/BackgroundAsset/Ava_bg.png'
@@ -40,7 +40,8 @@ function AvatarChakra() {
                     justifyContent='center' alignItems='center' gap={{ base: '0', md: '0', lg: '10' }}
                     direction={{ base: 'column', lg: 'row' }}>
                     <Box w={{ base: '70%', md: '50%', lg: '50%' }} p={4} display='flex' justifyContent='center' alignItems='center' >
-                        <ImageSlider slides={SlideData} />
+                        {/* <ImageSlider slides={SlideData} /> */}
+                        <ImageSlider slides={AvatarData} />
                     </Box>
                     <Box className="InputData" as="form" onSubmit={handleSubmit} display='flex'
                         flexDir='column' alignItems='center' justifyContent='center'>

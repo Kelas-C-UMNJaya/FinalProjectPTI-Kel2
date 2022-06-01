@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Heading, SimpleGrid, Image, Text, Grid, Flex, Box, Button, CircularProgress, Stack, CircularProgressLabel } from '@chakra-ui/react'
+import { SimpleGrid, Image, Text, Grid, Flex, Box, Button, CircularProgress, CircularProgressLabel } from '@chakra-ui/react'
 import { userContext } from "../UserContext";
 import Home_pagi from "../Asset/BackgroundAsset/Home_pagi.png";
 import { FaBed } from 'react-icons/fa';
@@ -49,20 +49,20 @@ function Game() {
             updateStatus(tidur, setTidur, 0.5, "turun");
         }
         else if (status === "makan") {
-            updateStatus(makan, setMakan, 5, "naik");
+            updateStatus(makan, setMakan, 8, "naik");
             updateStatus(main, setMain, 1, "turun");
             updateStatus(tidur, setTidur, 1, "turun");
         }
         else if (status === "main") {
-            updateStatus(makan, setMakan, 1, "turun");
+            updateStatus(makan, setMakan, 2, "turun");
             updateStatus(main, setMain, 4, "naik");
-            updateStatus(tidur, setTidur, 0.7, "turun");
+            updateStatus(tidur, setTidur, 1, "turun");
         }
         else if (status === "belajar") {
-            updateStatus(makan, setMakan, 1, "turun");
-            updateStatus(main, setMain, 1, "turun");
+            updateStatus(makan, setMakan, 1.5, "turun");
+            updateStatus(main, setMain, 2, "turun");
             updateStatus(tidur, setTidur, 1, "turun");
-            updateStatus(belajar, setBelajar, 20, "naik");
+            updateStatus(belajar, setBelajar, 4, "naik");
             if (belajar >= 100) {
                 setBelajar(0);
                 setBgBelajar("#EAE0D5");
@@ -72,7 +72,7 @@ function Game() {
         else if (status === "tidur") {
             updateStatus(makan, setMakan, 1, "turun");
             updateStatus(main, setMain, 1, "turun");
-            updateStatus(tidur, setTidur, 2, "naik");
+            updateStatus(tidur, setTidur, 5, "naik");
         }
     }
 
@@ -172,7 +172,7 @@ function Game() {
                         <Image
                             boxSize={{ base: '180px', md: '200px', lg: '240px' }}
                             objectFit='cover'
-                            src='https://cdn.discordapp.com/attachments/946960873686188093/978883459672047676/c1.png'
+                            src='/static/media/c1.0ca3c4aa3397d78630f1.png'
                         />
                     </Box>
                 </Flex>
