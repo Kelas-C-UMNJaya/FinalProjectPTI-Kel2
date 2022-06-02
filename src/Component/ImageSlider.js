@@ -1,24 +1,3 @@
-// import React from "react";
-// import { Image } from "@chakra-ui/react";
-// import { Carousel } from "react-responsive-carousel";
-// import "react-responsive-carousel/lib/styles/carousel.min.css";
-
-// const ImageSlider = ({ slides }) => {
-//     return (
-//         <Carousel renderItem={(item, { isSelected })
-//         } infiniteLoop maxW='400px' maxH='400px' showIndicators={false} dynamicHeight={true} showThumbs={false} >
-//             {
-//                 slides.map((slide, index) => {
-//                     console.log(slide);
-//                     return < Image h='full' key={index} src={slide.image} />
-//                 })
-//             }
-//         </Carousel >
-//     );
-// };
-
-// export default ImageSlider;
-
 import React, { useContext } from "react";
 import { AvatarData } from "../Component/AvatarData";
 import { Flex, Box } from "@chakra-ui/react";
