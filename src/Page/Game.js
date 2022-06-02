@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { SimpleGrid, Image, Text, Grid, Flex, Box, Button, CircularProgress, CircularProgressLabel } from '@chakra-ui/react'
 import { userContext } from "../UserContext";
-import Home_pagi from "../Asset/BackgroundAsset/Home_pagi.png";
 import { FaBed } from 'react-icons/fa';
 import { IoFastFoodSharp, IoGameControllerSharp, IoSchoolSharp } from 'react-icons/io5';
 import Jam from "./Jam";
@@ -41,6 +40,16 @@ import c5_makan from '../Asset/AvatarAsset/c5_makan.png'
 import c5_main from '../Asset/AvatarAsset/c5_main.png'
 import c5_tidur from '../Asset/AvatarAsset/c5_tidur.png'
 
+//BACKGROUND ASSET===============================//
+import Home_pagi from "../Asset/BackgroundAsset/Home_pagi.png";
+import Home_malam from "../Asset/BackgroundAsset/Home_malam.png";
+import UMN_pagi from "../Asset/BackgroundAsset/UMN_pagi.png";
+import UMN_malam from "../Asset/BackgroundAsset/UMN_malam.png";
+import Cafe_pagi from "../Asset/BackgroundAsset/Cafe_pagi.png";
+import Cafe_malam from "../Asset/BackgroundAsset/Cafe_malam.png";
+import Hiling_pagi from "../Asset/BackgroundAsset/Hiling_pagi.png";
+import Hiling_malam from "../Asset/BackgroundAsset/Hiling_malam.png";
+
 function Game() {
     const { userData, curr, salam } = useContext(userContext);
     //USESTATE PROGRESS BAR==============//
@@ -78,6 +87,38 @@ function Game() {
 
     //GREETINGS USESTATE===================//
     const [greeting, setGreeting] = useState("");
+
+    //BACKGROUND USESTATE===================//
+    const [background, setBackground] = useState(Home_malam);
+    const [location, setLocation] = useState("");
+
+    function backgroundUpdater() {
+        if (location === "kampus") {
+            if (salam === "Pagi" || salam === "Siang" || salam === "Sore") {
+                setBackground(UMN_pagi);
+            } else {
+                setBackground(UMN_malam);
+            }
+        } else if (location === "hiling") {
+            if (salam === "Pagi" || salam === "Siang" || salam === "Sore") {
+                setBackground(Hiling_pagi);
+            } else {
+                setBackground(Hiling_malam);
+            }
+        } else if (location === "cafe") {
+            if (salam === "Pagi" || salam === "Siang" || salam === "Sore") {
+                setBackground(Cafe_pagi);
+            } else {
+                setBackground(Cafe_malam);
+            }
+        } else {
+            if (salam === "Pagi" || salam === "Siang" || salam === "Sore") {
+                setBackground(Home_pagi);
+            } else {
+                setBackground(Home_malam);
+            }
+        }
+    }
 
     function greetingHandler() {
         if (salam === "Pagi") {
@@ -294,12 +335,14 @@ function Game() {
         setButtonCafe(true);
         if (buttonKampus) {
             setKampusActive(false);
+            setLocation("kampus");
             setHilingActive(true);
             setCafeActive(true);
             setButtonHideTidur(false);
             setButtonHideMain(false);
         } else {
             setKampusActive(true);
+            setLocation("home");
             setButtonHideTidur(true);
             setButtonHideMain(true);
             setButtonHideMakan(true);
@@ -313,11 +356,13 @@ function Game() {
         setButtonCafe(true);
         if (buttonHiling) {
             setHilingActive(false);
+            setLocation("hiling");
             setKampusActive(true);
             setCafeActive(true);
             setButtonHideBelajar(false);
         } else {
             setHilingActive(true);
+            setLocation("home");
             setButtonHideTidur(true);
             setButtonHideMain(true);
             setButtonHideMakan(true);
@@ -332,11 +377,13 @@ function Game() {
         setButtonHiling(true);
         if (buttonCafe) {
             setCafeActive(false);
+            setLocation("cafe");
             setKampusActive(true);
             setHilingActive(true);
             setButtonHideTidur(false);
         } else {
             setCafeActive(true);
+            setLocation("home");
             setButtonHideTidur(true);
             setButtonHideMain(true);
             setButtonHideMakan(true);
@@ -347,6 +394,7 @@ function Game() {
 
     useEffect(() => {
         const interval = setInterval(() => {
+            backgroundUpdater();
             greetingHandler();
             updateStatusBar(button);
         }, 1000);
@@ -354,7 +402,7 @@ function Game() {
     })
 
     return (
-        <Flex className="Bungkus" h='100vh' bgImage={Home_pagi} bgSize='cover' bgPosition='center' color='#712B75' direction='column'>
+        <Flex className="Bungkus" h='100vh' bgImage={background} bgSize='cover' bgPosition='center' color='#712B75' direction='column'>
             <Flex className="Header" justifyContent='center' >
                 <Flex className="Jam" bg='#2f3e46' color='#EAE0D5' w='100vw' px='4' py='3'>
                     <Jam />

@@ -1,10 +1,11 @@
-import { Heading, Flex, Text } from "@chakra-ui/react";
+import { Heading, Flex, Text, Spacer, Box } from "@chakra-ui/react";
 import { addMinutes, startOfToday, startOfWeek, format } from "date-fns";
 import React, { useState, useEffect, useContext } from "react";
 import { userContext } from "../UserContext";
+import { NewsAPI } from "../Page/NewsAPI";
 
 export default function Jam() {
-    const { salam, setSalam } = useContext(userContext);
+    const { setSalam } = useContext(userContext);
     const [jam, setJam] = useState(startOfToday());
 
     const updateJam = () => {
@@ -20,7 +21,7 @@ export default function Jam() {
             setSalam("Siang");
         } else if (format(jam, "HH") >= "14" && format(jam, "HH") < "18") {
             setSalam("Sore");
-        } else if (format(jam, "HH") >= "18" && format(jam, "HH") < "00") {
+        } else if (format(jam, "HH") >= "18" && format(jam, "HH") < "24") {
             setSalam("Malam");
         }
     }
@@ -34,9 +35,15 @@ export default function Jam() {
     });
 
     return (
-        <Flex gap='2'>
-            <Heading as='h6' size='xs'>{format(jam, 'HH:mm')}</Heading >
-            <Text fontSize='xs'>{format(jam, 'E, d MMM yyyy')}</Text >
+        <Flex direction="row" w='100vw'>
+            <Box className="Jam" padding="3">
+                <Heading as='h6' size='xs'>{format(jam, 'HH:mm')}</Heading >
+                <Text fontSize='xs'>{format(jam, 'E, d MMM yyyy')}</Text >
+            </Box>
+            <Spacer />
+            <Box className="NewsAPI" display='flex' justifyContent='center' alignItems='center'>
+                <NewsAPI />
+            </Box>
         </Flex>
     )
 }
