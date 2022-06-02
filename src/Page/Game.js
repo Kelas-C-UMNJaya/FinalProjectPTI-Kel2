@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { SimpleGrid, Image, Text, Grid, Flex, Box, Button, CircularProgress, CircularProgressLabel } from '@chakra-ui/react'
+import { SimpleGrid, Image, Text, Grid, Flex, Box, Button, CircularProgress, CircularProgressLabel, Heading } from '@chakra-ui/react'
 import { userContext } from "../UserContext";
 import { FaBed } from 'react-icons/fa';
 import { IoFastFoodSharp, IoGameControllerSharp, IoSchoolSharp } from 'react-icons/io5';
@@ -410,10 +410,11 @@ function Game() {
             </Flex>
             <Flex className="Body2" justifyContent='center' gap={{ base: '0', md: '100', lg: '100' }} direction={{ base: 'row', md: 'row', lg: 'row' }}>
                 <Flex className="Body" justifyContent='center' align='center' gap='20px' padding={{ base: '2' }} direction='column'>
-                    <Box className="UserBar" color='#EAE0D5' borderRadius='3' bg='#2f3e46' textAlign='left' direction='column' w='full' px='4' py='2' flexGrow='1'>
-                        <Text fontSize='mg'>{greeting}, {userData.name}</Text>
-                        <Text as='i' fontSize='mg'>{userData.jurusan}</Text>
-                    </Box>
+                    <Flex className="UserBar" color='#EAE0D5' borderRadius='3' bg='#2f3e46' textAlign='left' justifyContent='center' direction='column' w='full' px='4' py='2' flexGrow='1'>
+                        <Heading as='h4' size='md'>Cuaca</Heading>
+                        <Text fontSize='sm'>{greeting}, {userData.name}</Text>
+                        <Text as='i' fontSize='sm'>{userData.jurusan}</Text>
+                    </Flex>
                     <Box justifyContent='center' color='#712B75' align='center' >
                         <Image
                             boxSize={{ base: '180px', md: '200px', lg: '240px' }}
@@ -467,14 +468,14 @@ function Game() {
                             Makan
                         </Button>)}
                     </SimpleGrid >
-                    <Flex flexWrap='wrap' w='175px' flexDir='row' justifyContent='center' gap='15px' color='#2f3e46' bg='#2f3e46' padding='3' borderRadius='3'>
-                        <Button onClick={handleClickKampus} size='sm' w='65px' bg='#EAE0D5' _hover={{ bg: '#7678ed' }} variant='solid'>
+                    <Flex flexWrap='wrap' w='170px' flexDir='row' justifyContent='center' gap='10px' color='#2f3e46' bg='#2f3e46' padding='3' borderRadius='3'>
+                        <Button onClick={handleClickKampus} size='sm' w='60px' bg='#EAE0D5' _hover={{ bg: '#7678ed' }} variant='solid'>
                             {kampusActive ? 'Kampus' : 'Home'}
                         </Button>
-                        <Button onClick={handleClickHiling} size='sm' w='65px' bg='#EAE0D5' _hover={{ bg: '#7678ed' }} variant='solid'>
+                        <Button onClick={handleClickHiling} size='sm' w='60px' bg='#EAE0D5' _hover={{ bg: '#7678ed' }} variant='solid'>
                             {hilingActive ? 'Hiling' : 'Home'}
                         </Button>
-                        <Button onClick={handleClickCafe} size='sm' w='65px' bg='#EAE0D5' _hover={{ bg: '#7678ed' }} variant='solid'>
+                        <Button onClick={handleClickCafe} size='sm' w='60px' bg='#EAE0D5' _hover={{ bg: '#7678ed' }} variant='solid'>
                             {cafeActive ? 'Cafe' : 'Home'}
                         </Button>
                     </Flex>

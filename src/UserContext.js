@@ -10,8 +10,18 @@ const userData = {
 export function UserProvider({ children }) {
     const [curr, setCurr] = useState(0);
     const [salam, setSalam] = useState("");
-
     const [news, setNews] = useState([]);
+    const [cuaca, setCuaca] = useState([]);
+
+    const cuacaUrl = "http://api.openweathermap.org/data/2.5/weather?q=Serpong&appid=c9f9daaff151b689d11eefc65b1c4c1f";
+
+    function getCuaca() {
+        axios.get(cuacaUrl).then((response) => {
+            setCuaca(response.data.current);
+            console.log(response.data);
+        });
+    }
+
     const url = 'https://newsapi.org/v2/everything?' +
         'q=Indonesia&' +
         'from=2022-06-02&' +
@@ -29,6 +39,7 @@ export function UserProvider({ children }) {
     }
 
     useEffect(() => {
+        getCuaca();
         getNews();
     }, []);
 
