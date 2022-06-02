@@ -1,31 +1,21 @@
-import { React, useContext, useState } from "react";
-import { Text, Input, Flex, Box, Button, Select, FormControl, VStack, Container } from '@chakra-ui/react'
+import { React, useContext, useState, useRef } from "react";
+import { Text, Input, Flex, Box, Button, Select } from '@chakra-ui/react'
 import ImageSlider from "../Component/ImageSlider";
-import { AvatarData, SlideData } from "../Component/AvatarData";
+import { AvatarData } from "../Component/AvatarData";
 import { useNavigate } from "react-router-dom";
 import { userContext } from "../UserContext";
 import Ava_bg from '../Asset/BackgroundAsset/Ava_bg.png'
 
-
 function AvatarChakra() {
     let navigate = useNavigate();
-    const [temp, setTemp] = useState("");
-    const [temp2, setTemp2] = useState("");
+    const nameTemp = useRef();
+    const jurusanTemp = useRef();
     const { userData } = useContext(userContext);
 
-    function handleChangeName(e) {
-        setTemp(e.target.value);
-    }
-    function handleChangeJurusan(e) {
-        setTemp2(e.target.value);
-    }
-
     function handleSubmit(e) {
-        userData.name = temp;
-        userData.jurusan = temp2;
         e.preventDefault();
-        console.log(e);
-        console.log(userData.name);
+        userData.name = nameTemp.current.value;
+        userData.jurusan = jurusanTemp.current.value;
         navigate("/Game");
     }
 
@@ -40,15 +30,14 @@ function AvatarChakra() {
                     justifyContent='center' alignItems='center' gap={{ base: '0', md: '0', lg: '10' }}
                     direction={{ base: 'column', lg: 'row' }}>
                     <Box w={{ base: '70%', md: '50%', lg: '50%' }} p={4} display='flex' justifyContent='center' alignItems='center' >
-                        {/* <ImageSlider slides={SlideData} /> */}
                         <ImageSlider slides={AvatarData} />
                     </Box>
                     <Box className="InputData" as="form" onSubmit={handleSubmit} display='flex'
                         flexDir='column' alignItems='center' justifyContent='center'>
-                        <Input onChange={handleChangeName} value={temp} size='sm' my='3' borderColor='#5E503F' borderRadius='3' bg='#EAE0D5' color='#0A0908'
+                        <Input ref={nameTemp} size='sm' my='3' borderColor='#5E503F' borderRadius='3' bg='#EAE0D5' color='#0A0908'
                             placeholder="Enter your name..." _hover={{ color: '#0A0908' }}>
                         </Input>
-                        <Select onClick={handleChangeJurusan} placeholder="Program Studi" size='sm' borderColor='#5E503F' _hover={{ color: '#0A0908' }} borderRadius='3' color='#0A0908' bg='#EAE0D5'>
+                        <Select ref={jurusanTemp} placeholder="Program Studi" size='sm' borderColor='#5E503F' _hover={{ color: '#0A0908' }} borderRadius='3' color='#0A0908' bg='#EAE0D5'>
                             <option value='Informatika'>Informatika</option>
                             <option value='Teknik Sipil'>Teknik Sipil</option>
                             <option value='Teknik Mesin'>Teknik Mesin</option>

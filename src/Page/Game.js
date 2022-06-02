@@ -6,8 +6,15 @@ import { FaBed } from 'react-icons/fa';
 import { IoFastFoodSharp, IoGameControllerSharp, IoSchoolSharp } from 'react-icons/io5';
 import Jam from "./Jam";
 
+//AVATAR IMPORT 
+import c1 from '../Asset/AvatarAsset/c1.png'
+import c2 from '../Asset/AvatarAsset/c2.png'
+import c3 from '../Asset/AvatarAsset/c3.png'
+import c4 from '../Asset/AvatarAsset/c4.png'
+import c5 from '../Asset/AvatarAsset/c5.png'
+
 function Game() {
-    const { userData } = useContext(userContext);
+    const { userData, curr } = useContext(userContext);
     //USESTATE PROGRESS BAR==============//
     const [makan, setMakan] = useState(50);
     const [belajar, setBelajar] = useState(0);
@@ -26,6 +33,24 @@ function Game() {
     const [buttonBelajar, setButtonBelajar] = useState(true);
     const [buttonMain, setButtonMain] = useState(true);
     const [buttonTidur, setButtonTidur] = useState(true);
+
+    //AVATAR USESTATE===================//
+    const [avatarProfil, setAvatarProfil] = useState();
+
+    useEffect(() => {
+        if (curr === 0) {
+            setAvatarProfil(c1);
+        } else if (curr === 1) {
+            setAvatarProfil(c2);
+        } else if (curr === 2) {
+            setAvatarProfil(c3);
+        } else if (curr === 3) {
+            setAvatarProfil(c4);
+        } else if (curr === 4) {
+            setAvatarProfil(c5);
+        }
+    }, []);
+
 
     function updateStatus(val, callback, rate, movement) {
         if (movement === "naik" && (val + rate) <= 100) {
@@ -172,7 +197,7 @@ function Game() {
                         <Image
                             boxSize={{ base: '180px', md: '200px', lg: '240px' }}
                             objectFit='cover'
-                            src='/static/media/c1.0ca3c4aa3397d78630f1.png'
+                            src={avatarProfil}
                         />
                     </Box>
                 </Flex>

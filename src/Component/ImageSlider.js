@@ -19,7 +19,7 @@
 
 // export default ImageSlider;
 
-import React, { useState, useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import { AvatarData } from "../Component/AvatarData";
 import { Flex, Box } from "@chakra-ui/react";
 import { userContext } from "../UserContext";
@@ -27,7 +27,7 @@ import { ImArrowLeft, ImArrowRight } from "react-icons/im";
 
 const ImageSlider = ({ slides }) => {
     const { curr, setCurr } = useContext(userContext);
-    const arr = slides.arr;
+    const arr = slides.length;
 
     const nSlides = () => {
         setCurr(curr === arr - 1 ? 0 : curr + 1);
@@ -46,7 +46,7 @@ const ImageSlider = ({ slides }) => {
             <section className="carousel">
                 {AvatarData.map((slide, index) => {
                     return (
-                        <Flex className={index === curr ? "slide active" : "slide"} key={index}>
+                        <Flex className={index === curr ? "slide active" : "slide"} key={index} onClick={nSlides}>
                             {index === curr && (<img width="300px" src={slide.image} alt="travel image" className="image" />)}
                         </Flex>
                     );
