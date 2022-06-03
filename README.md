@@ -1,6 +1,9 @@
 # 7-Days Student
 ## {Be DominanT}
 
+### Link Video Penjelasan Game
+https://drive.google.com/file/d/1uUB2fx17HcUfhTqocgmvVLLQwbn4ZC9V/view?usp=sharing
+
 ### Anggota
 - Areta Escalonia. C/[aescalonia](https://github.com/aescalonia) (00000057872)
 - Jefer Setiawan/[Ajeppp](https://github.com/Ajeppp) (00000059297)
