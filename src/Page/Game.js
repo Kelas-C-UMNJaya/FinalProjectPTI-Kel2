@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { SimpleGrid, Image, Text, Grid, Flex, Box, Button, CircularProgress, CircularProgressLabel, Heading } from '@chakra-ui/react'
+import { SimpleGrid, Image, Text, Grid, Flex, Box, Button, CircularProgress, CircularProgressLabel, Stack, Alert, AlertIcon } from '@chakra-ui/react'
 import { userContext } from "../UserContext";
 import { FaBed } from 'react-icons/fa';
 import { IoFastFoodSharp, IoGameControllerSharp, IoSchoolSharp } from 'react-icons/io5';
@@ -52,7 +52,7 @@ import Hiling_malam from "../Asset/BackgroundAsset/Hiling_malam.png";
 import WeatherAPI from "./WeatherAPI";
 
 function Game() {
-    const { userData, curr, salam } = useContext(userContext);
+    const { userData, curr, salam, setCountBelajar, setCountMain, setCountMakan, setCountTidur, gameOver, countMain, countMakan, countBelajar, countTidur } = useContext(userContext);
     //USESTATE PROGRESS BAR==============//
     const [makan, setMakan] = useState(50);
     const [belajar, setBelajar] = useState(0);
@@ -229,6 +229,8 @@ function Game() {
                 setAvatarProfil(c5_makan);
             }
             setButton("makan");
+            setCountMakan((prevVal) => prevVal + 1);
+            console.log(countMakan);
             setBgMakan("#7678ed");
             setBgBelajar("#EAE0D5");
             setBgMain("#EAE0D5");
@@ -259,6 +261,8 @@ function Game() {
                 setAvatarProfil(c5_main);
             }
             setButton("main");
+            setCountMain((prevVal) => prevVal + 1);
+            console.log(countMain);
             setBgMain("#7678ed");
             setBgBelajar("#EAE0D5");
             setBgMakan("#EAE0D5");
@@ -290,6 +294,8 @@ function Game() {
                 setAvatarProfil(c5_belajar);
             }
             setBgBelajar("#7678ed");
+            setCountBelajar((prevVal) => prevVal + 1);
+            console.log(countBelajar);
             setBgMakan("#EAE0D5");
             setBgMain("#EAE0D5");
             setBgTidur("#EAE0D5");
@@ -319,6 +325,8 @@ function Game() {
                 setAvatarProfil(c5_tidur);
             }
             setButton("tidur");
+            setCountTidur((prevVal) => prevVal + 1);
+            console.log(countTidur);
             setBgTidur("#7678ed");
             setBgMakan("#EAE0D5");
             setBgMain("#EAE0D5");

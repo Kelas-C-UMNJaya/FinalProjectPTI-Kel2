@@ -1,10 +1,11 @@
 import { React, useContext, useState, useRef } from "react";
-import { Text, Input, Flex, Box, Button, Select } from '@chakra-ui/react'
+import { Input, Flex, Box, Button, Select, Heading, Spacer } from '@chakra-ui/react'
 import ImageSlider from "../Component/ImageSlider";
 import { AvatarData } from "../Component/AvatarData";
 import { useNavigate } from "react-router-dom";
 import { userContext } from "../UserContext";
 import Ava_bg from '../Asset/BackgroundAsset/Ava_bg.png'
+import AboutUs from '../Page/AboutUs'
 
 function AvatarChakra() {
     let navigate = useNavigate();
@@ -21,9 +22,13 @@ function AvatarChakra() {
 
     return (
         <Flex className="Bungkus" h='100vh' color='#4D4C7D' bgImage={Ava_bg} bgSize='cover' bgPosition='center' direction='column'>
-            <Box className="Header" h='30px' justifyContent='center' bg='#2f3e46' color='#EAE0D5'>
-                <Text mx='5px'>7-Days Student</Text>
-            </Box>
+            <Flex className="Header" bg='#2f3e46' color='#EAE0D5' flexDir='row' py='2' paddingLeft='4' paddingRight='4'>
+                <Flex justifyContent='center' alignItems='center'>
+                    <Heading as='h6' size='md' >7-Days Student</Heading>
+                </Flex>
+                <Spacer />
+                <AboutUs />
+            </Flex>
             <Flex className="Body" mx={{ base: '40px', sm: '100px', md: '200px', lg: '250px' }}
                 justifyContent='center' gap='5' align='center' flexGrow='1'>
                 <Flex className="SignUp" bg='#2f3e46' border='2px #5E503F' borderRadius='3px'

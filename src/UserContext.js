@@ -10,8 +10,13 @@ const userData = {
 export function UserProvider({ children }) {
     const [curr, setCurr] = useState(0);
     const [salam, setSalam] = useState("");
+    const [gameOver, setGameOver] = useState(false);
     const [news, setNews] = useState([]);
     const [cuaca, setCuaca] = useState({});
+    const [countMakan, setCountMakan] = useState(0);
+    const [countBelajar, setCountBelajar] = useState(0);
+    const [countMain, setCountMain] = useState(0);
+    const [countTidur, setCountTidur] = useState(0);
 
     const cuacaUrl = "http://api.openweathermap.org/data/2.5/weather?q=Serpong&units=metric&appid=c9f9daaff151b689d11eefc65b1c4c1f";
 
@@ -51,7 +56,25 @@ export function UserProvider({ children }) {
     }, []);
 
     return (
-        <userContext.Provider value={{ userData, curr, setCurr, salam, setSalam, news, cuaca }}>
+        <userContext.Provider value={{
+            userData,
+            curr,
+            setCurr,
+            salam,
+            setSalam,
+            news,
+            cuaca,
+            gameOver,
+            setGameOver,
+            setCountBelajar,
+            setCountMain,
+            setCountMakan,
+            setCountTidur,
+            countBelajar,
+            countMain,
+            countMakan,
+            countTidur,
+        }}>
             {children}
         </userContext.Provider>
     )
