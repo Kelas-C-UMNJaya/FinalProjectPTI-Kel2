@@ -1,0 +1,44 @@
+{
+    "coord": {
+        "lon": 106.6642,
+        "lat": -6.3169
+    },
+    "weather": [
+        {
+            "id": 804,
+            "main": "Clouds",
+            "description": "overcast clouds",
+            "icon": "04d"
+        }
+    ],
+    "base": "stations",
+    "main": {
+        "temp": 303.18,
+        "feels_like": 309.27,
+        "temp_min": 300.73,
+        "temp_max": 303.3,
+        "pressure": 1003,
+        "humidity": 74
+    },
+    "visibility": 10000,
+    "wind": {
+        "speed": 0.93,
+        "deg": 145,
+        "gust": 1.57
+    },
+    "clouds": {
+        "all": 91
+    },
+    "dt": 1654222338,
+    "sys": {
+        "type": 2,
+        "id": 2038545,
+        "country": "ID",
+        "sunrise": 1654210702,
+        "sunset": 1654253089
+    },
+    "timezone": 25200,
+    "id": 1627459,
+    "name": "Serpong",
+    "cod": 200
+}

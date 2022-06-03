@@ -6,7 +6,7 @@ import { NewsAPI } from "../Page/NewsAPI";
 
 export default function Jam() {
     const { setSalam } = useContext(userContext);
-    const [jam, setJam] = useState(startOfToday());
+    const [jam, setJam] = useState(startOfWeek(startOfToday()));
 
     const updateJam = () => {
         setJam((prevVal) => addMinutes(prevVal, 1));
@@ -38,7 +38,7 @@ export default function Jam() {
         <Flex direction="row" w='100vw'>
             <Box className="Jam" padding="3">
                 <Heading as='h6' size='xs'>{format(jam, 'HH:mm')}</Heading >
-                <Text fontSize='xs'>{format(jam, 'E, d MMM yyyy')}</Text >
+                <Text fontSize='xs'>{format(jam, 'EEEE, MMM yyyy')}</Text >
             </Box>
             <Spacer />
             <Box className="NewsAPI" display='flex' justifyContent='center' alignItems='center'>

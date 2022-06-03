@@ -11,16 +11,16 @@ export function UserProvider({ children }) {
     const [curr, setCurr] = useState(0);
     const [salam, setSalam] = useState("");
     const [news, setNews] = useState([]);
-    const [cuaca, setCuaca] = useState([]);
+    const [cuaca, setCuaca] = useState({});
 
-    const cuacaUrl = "http://api.openweathermap.org/data/2.5/weather?q=Serpong&appid=c9f9daaff151b689d11eefc65b1c4c1f";
+    const cuacaUrl = "http://api.openweathermap.org/data/2.5/weather?q=Serpong&units=metric&appid=c9f9daaff151b689d11eefc65b1c4c1f";
 
-    function getCuaca() {
-        axios.get(cuacaUrl).then((response) => {
-            setCuaca(response.data.current);
-            console.log(response.data);
+    const cuacaData = (e) => {
+        axios.get(cuacaUrl).then((res) => {
+            setCuaca(res.data);
+            console.log(res.data);
         });
-    }
+    };
 
     const url = 'https://newsapi.org/v2/everything?' +
         'q=Indonesia&' +
@@ -39,12 +39,19 @@ export function UserProvider({ children }) {
     }
 
     useEffect(() => {
-        getCuaca();
+        const interval = setInterval(() => {
+            cuacaData();
+        }, 300000);
+        return () => clearInterval(interval);
+    }, []);
+
+    useEffect(() => {
+        cuacaData();
         getNews();
     }, []);
 
     return (
-        <userContext.Provider value={{ userData, curr, setCurr, salam, setSalam, news }}>
+        <userContext.Provider value={{ userData, curr, setCurr, salam, setSalam, news, cuaca }}>
             {children}
         </userContext.Provider>
     )

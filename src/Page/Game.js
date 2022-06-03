@@ -49,6 +49,7 @@ import Cafe_pagi from "../Asset/BackgroundAsset/Cafe_pagi.png";
 import Cafe_malam from "../Asset/BackgroundAsset/Cafe_malam.png";
 import Hiling_pagi from "../Asset/BackgroundAsset/Hiling_pagi.png";
 import Hiling_malam from "../Asset/BackgroundAsset/Hiling_malam.png";
+import WeatherAPI from "./WeatherAPI";
 
 function Game() {
     const { userData, curr, salam } = useContext(userContext);
@@ -411,7 +412,7 @@ function Game() {
             <Flex className="Body2" justifyContent='center' gap={{ base: '0', md: '100', lg: '100' }} direction={{ base: 'row', md: 'row', lg: 'row' }}>
                 <Flex className="Body" justifyContent='center' align='center' gap='20px' padding={{ base: '2' }} direction='column'>
                     <Flex className="UserBar" color='#EAE0D5' borderRadius='3' bg='#2f3e46' textAlign='left' justifyContent='center' direction='column' w='full' px='4' py='2' flexGrow='1'>
-                        <Heading as='h4' size='md'>Cuaca</Heading>
+                        <WeatherAPI />
                         <Text fontSize='sm'>{greeting}, {userData.name}</Text>
                         <Text as='i' fontSize='sm'>{userData.jurusan}</Text>
                     </Flex>
