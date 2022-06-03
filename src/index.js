@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ReactDOM from 'react-dom/client';
 import Game from './Page/Game';
 import App from './App';
+import GameOver from './Page/GameOver';
 import { UserProvider } from './UserContext';
 import { StatusProvider } from './StatusContext';
 
@@ -16,6 +17,7 @@ root.render(
           <Routes>
             <Route path="/" element={<App />} />
             <Route path="/Game" element={<Game />} />
+            <Route path="/GameOver" element={<GameOver />} />
           </Routes>
         </BrowserRouter>
       </UserProvider>

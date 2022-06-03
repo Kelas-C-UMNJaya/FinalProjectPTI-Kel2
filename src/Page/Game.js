@@ -4,6 +4,7 @@ import { userContext } from "../UserContext";
 import { FaBed } from 'react-icons/fa';
 import { IoFastFoodSharp, IoGameControllerSharp, IoSchoolSharp } from 'react-icons/io5';
 import Jam from "./Jam";
+import { useNavigate } from "react-router-dom";
 
 //AVATAR 1===============================// 
 import c1 from '../Asset/AvatarAsset/c1.png'
@@ -52,6 +53,7 @@ import Hiling_malam from "../Asset/BackgroundAsset/Hiling_malam.png";
 import WeatherAPI from "./WeatherAPI";
 
 function Game() {
+    let navigate = useNavigate();
     const { userData, curr, salam, setCountBelajar, setCountMain, setCountMakan, setCountTidur, gameOver, countMain, countMakan, countBelajar, countTidur } = useContext(userContext);
     //USESTATE PROGRESS BAR==============//
     const [makan, setMakan] = useState(50);
@@ -195,7 +197,7 @@ function Game() {
         else if (status === "belajar") {
             updateStatus(makan, setMakan, 1.5, "turun");
             updateStatus(main, setMain, 2, "turun");
-            updateStatus(tidur, setTidur, 0.5, "turun");
+            updateStatus(tidur, setTidur, 1, "turun");
             updateStatus(belajar, setBelajar, 4, "naik");
             if (belajar >= 100) {
                 setBelajar(0);
@@ -400,6 +402,12 @@ function Game() {
         }
         setButtonCafe(!buttonCafe);
     }
+
+    useEffect(() => {
+        if (gameOver) {
+            navigate("/GameOver");
+        }
+    }, [gameOver]);
 
     useEffect(() => {
         const interval = setInterval(() => {
