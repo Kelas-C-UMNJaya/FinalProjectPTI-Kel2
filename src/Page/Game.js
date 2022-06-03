@@ -349,6 +349,8 @@ function Game() {
             setLocation("kampus");
             setHilingActive(true);
             setCafeActive(true);
+            setButtonHideBelajar(true);
+            setButtonHideMakan(true);
             setButtonHideTidur(false);
             setButtonHideMain(false);
         } else {
@@ -371,6 +373,9 @@ function Game() {
             setKampusActive(true);
             setCafeActive(true);
             setButtonHideBelajar(false);
+            setButtonHideMain(true);
+            setButtonHideMakan(true);
+            setButtonHideTidur(true);
         } else {
             setHilingActive(true);
             setLocation("home");
@@ -392,6 +397,9 @@ function Game() {
             setKampusActive(true);
             setHilingActive(true);
             setButtonHideTidur(false);
+            setButtonHideMain(true);
+            setButtonHideMakan(true);
+            setButtonHideBelajar(true);
         } else {
             setCafeActive(true);
             setLocation("home");
