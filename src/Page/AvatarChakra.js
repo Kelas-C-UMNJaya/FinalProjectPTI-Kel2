@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { userContext } from "../UserContext";
 import Ava_bg from '../Asset/BackgroundAsset/Ava_bg.png'
 import AboutUs from '../Page/AboutUs'
+import Rules from '../Page/Rules'
 
 function AvatarChakra() {
     let navigate = useNavigate();
@@ -23,6 +24,8 @@ function AvatarChakra() {
     return (
         <Flex className="Bungkus" h='100vh' color='#4D4C7D' bgImage={Ava_bg} bgSize='cover' bgPosition='center' direction='column'>
             <Flex className="Header" bg='#2f3e46' color='#EAE0D5' flexDir='row' py='2' paddingLeft='4' paddingRight='4'>
+                <Rules />
+                <Spacer />
                 <Flex justifyContent='center' alignItems='center'>
                     <Heading as='h6' size='md' >7-Days Student</Heading>
                 </Flex>

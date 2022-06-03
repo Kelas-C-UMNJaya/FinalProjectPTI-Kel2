@@ -1,5 +1,7 @@
 import React from "react";
 import {
+    UnorderedList,
+    ListItem,
     Box,
     Text,
     Heading,
@@ -30,7 +32,7 @@ export default function AboutUs() {
             <Modal onClose={onClose} isOpen={isOpen} isCentered>
                 <ModalOverlay />
                 <ModalContent>
-                    <ModalHeader>Our Team</ModalHeader>
+                    <ModalHeader><Heading>Our Team</Heading></ModalHeader>
                     <ModalCloseButton />
                     <ModalBody>
                         <Flex flexDir='column' gap='2'>
