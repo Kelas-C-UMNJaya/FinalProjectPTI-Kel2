@@ -33,8 +33,10 @@ export default function Rules() {
                             <Flex className="Rules" flexDir='column' gap='3'>
                                 <span>
                                     Pertama-tama pilihlah karakter dan isi nama serta pilihlah jurusan sesuai keinginan anda.
+                                    Tekan tombol <Kbd>Start</Kbd> untuk memulai permainan.
                                     Permainan akan dimulai pada hari minggu jam 00:00,
                                     permainan akan berlangsung selama 7 hari dan di akhir akan diberitahukan evaluasi selama seminggu.
+                                    status bar semua pemain akan start mulai dari 50% semua kecuali tidur.
                                     Untuk menambah status bar anda bisa menekan tombol <Kbd>Makan</Kbd>, <Kbd>Main</Kbd>, <Kbd>Tidur</Kbd>, <Kbd>Belajar</Kbd>.
                                     Ketika tombol <Kbd>Kampus</Kbd>, <Kbd>Hiling</Kbd>, <Kbd>Cafe</Kbd>, <Kbd>Home</Kbd> ditekan maka game akan pindah ke tempat tersebut dan akan muncul tombol sesuai dengan apa yang bisa dilakukan ditempat tersebut.
                                     Untuk menampilkan berita tekan <Kbd>News</Kbd> yang terletak di kanan atas. Cuaca akan di update setiap 5 menit.
