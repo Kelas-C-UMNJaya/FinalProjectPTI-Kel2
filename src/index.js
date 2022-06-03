@@ -11,16 +11,14 @@ import { StatusProvider } from './StatusContext';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <ChakraProvider>
-    <StatusProvider>
-      <UserProvider>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<App />} />
-            <Route path="/Game" element={<Game />} />
-            <Route path="/GameOver" element={<GameOver />} />
-          </Routes>
-        </BrowserRouter>
-      </UserProvider>
-    </StatusProvider>
+    <UserProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<App />} />
+          <Route path="/Game" element={<Game />} />
+          <Route path="/GameOver" element={<GameOver />} />
+        </Routes>
+      </BrowserRouter>
+    </UserProvider>
   </ChakraProvider>
 );
